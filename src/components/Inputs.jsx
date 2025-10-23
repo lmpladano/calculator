@@ -3,9 +3,9 @@ import Operators from "./Operators";
 
 export default function Inputs({ onPush }) {
   return (
-    <div className="grid grid-flow-col grid-rows-4 gap-4 bg-blue-950 p-10">
-      <Numbers onPush={onPush} />
+    <div className="grid grid-cols-4 gap-4 bg-blue-950 p-10">
       <Operators onPush={onPush} />
+      <Numbers onPush={onPush} />
     </div>
   );
 }
