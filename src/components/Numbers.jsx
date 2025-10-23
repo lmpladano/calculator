@@ -3,9 +3,11 @@ export default function Numbers({ onPush }) {
 
   const nInputs = numbers.map((item) => {
     return (
-      <button onClick={onPush} value={item}>
-        {item}
-      </button>
+      <div className="">
+        <button onClick={onPush} value={item}>
+          {item}
+        </button>
+      </div>
     );
   });
 

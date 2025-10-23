@@ -40,10 +40,10 @@ function App() {
   }
 
   return (
-    <>
-      <h1>{display}</h1>
+    <div className="flex flex-col justify-center bg-blue-700">
+      <h1 className="text-amber-200">{display ? display : 0}</h1>
       <Inputs onPush={handleClick} />
-    </>
+    </div>
   );
 }
 
