@@ -4,19 +4,9 @@ export default function Operators({ onPush }) {
   const nInputs = operators.map((item) => {
     return (
       <>
-        {item == "+" ? (
-          <div>
-            <button onClick={onPush} value={item}>
-              {item}
-            </button>
-          </div>
-        ) : (
-          <div>
-            <button onClick={onPush} value={item}>
-              {item}
-            </button>
-          </div>
-        )}
+        <button onClick={onPush} value={item}>
+          {item}
+        </button>
       </>
     );
   });

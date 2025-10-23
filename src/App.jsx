@@ -19,6 +19,13 @@ function App() {
         ? setNum((prev) => prev + input)
         : setNumT((prev) => prev + input);
     }
+
+    if (input == "c") {
+      setDisplay("");
+      setNum("");
+      setNumT("");
+      setOperator("");
+    }
   }
 
   function equals(input) {
@@ -40,8 +47,8 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col justify-center bg-blue-700">
-      <h1 className="text-amber-200">{display ? display : 0}</h1>
+    <div className="flex flex-col justify-center bg-gray-500">
+      <h1 className="text-white-200 ">{display ? display : 0}</h1>
       <Inputs onPush={handleClick} />
     </div>
   );
