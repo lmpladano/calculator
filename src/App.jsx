@@ -74,8 +74,8 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col justify-center bg-gray-700 py-10 px-5">
-      <div className=" bg-emerald-500 flex flex-col my-4 text-black">
+    <div className="flex flex-col justify-center py-10 border-white border-2 px-5 rounded-2xl">
+      <div className=" bg-emerald-500 border-2 border-white flex flex-col my-4 text-black">
         <h3 className="self-end text-6xl p-2">{display ? display : 0}</h3>
       </div>
       <Inputs onPush={handleClick} />

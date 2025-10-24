@@ -8,19 +8,26 @@ export default function Inputs({ onPush }) {
     ["0", ".", "="],
   ];
 
-  const buttons = layout.flat().map((item) => {
+  const buttons = layout.flat().map((item, i) => {
+    if (item == "c") {
+      return (
+        <button key={i} onClick={onPush} value={item} className="bg-red-900">
+          {item}
+        </button>
+      );
+    }
     return item == "+" ? (
-      <button onClick={onPush} value={item} className="row-span-2">
+      <button key={i} onClick={onPush} value={item} className="row-span-2">
         {item}
       </button>
     ) : (
-      <button onClick={onPush} value={item}>
+      <button key={i} onClick={onPush} value={item}>
         {item}
       </button>
     );
   });
   return (
-    <div className="grid grid-cols-4 gap-4 bg-orange-900 px-2 py-9">
+    <div className="grid grid-cols-4 gap-4 border-2 border-white px-6 py-9">
       {buttons}
     </div>
   );
