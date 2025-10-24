@@ -20,7 +20,7 @@ export default function Inputs({ onPush }) {
     );
   });
   return (
-    <div className="grid grid-cols-4 gap-4 bg-gray-500 px-2 py-9">
+    <div className="grid grid-cols-4 gap-4 bg-orange-900 px-2 py-9">
       {buttons}
     </div>
   );

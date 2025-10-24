@@ -10,7 +10,7 @@ function App() {
   function handleClick(e) {
     const operators = [
       ["+", "-", "x", "/", "="],
-      ["MC", "MR", "M-", "M+"],
+      ["MC", "MR", "M-", "M+", "magic"],
     ];
     let input = e.target.value;
 
@@ -47,6 +47,11 @@ function App() {
       setNum(mem[0]);
     } else if (input == "MC") {
       localStorage.setItem("memory", JSON.stringify([]));
+    } else {
+      let initial = 0;
+      let sum = mem.reduce((n, c) => n + c, initial);
+      setDisplay(sum);
+      setNum(sum);
     }
   }
 
@@ -69,7 +74,7 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col justify-center bg-[#D5D1C3] py-10 px-5">
+    <div className="flex flex-col justify-center bg-gray-700 py-10 px-5">
       <div className=" bg-emerald-500 flex flex-col my-4 text-black">
         <h3 className="self-end text-6xl p-2">{display ? display : 0}</h3>
       </div>
