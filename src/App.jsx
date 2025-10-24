@@ -8,11 +8,17 @@ function App() {
   const [numT, setNumT] = useState("");
 
   function handleClick(e) {
-    const operators = ["+", "-", "x", "/", "="];
+    const operators = [
+      ["+", "-", "x", "/", "="],
+      ["MC", "MR", "M-", "M+"],
+    ];
     let input = e.target.value;
-    setDisplay((prev) => prev + input);
 
-    if (operators.includes(input)) {
+    operators[1].includes(input)
+      ? memoryHanlder(input)
+      : setDisplay((prev) => prev + input);
+
+    if (operators.flat().includes(input)) {
       numT != "" ? equals(input) : setOperator(input);
     } else {
       operator == ""
@@ -25,6 +31,22 @@ function App() {
       setNum("");
       setNumT("");
       setOperator("");
+    }
+  }
+
+  function memoryHanlder(input) {
+    let mem = JSON.parse(localStorage.getItem("memory")) || [];
+    if (input == "M+") {
+      mem.unshift(numT ? Number(numT) : Number(num));
+      localStorage.setItem("memory", JSON.stringify(mem));
+    } else if (input == "M-") {
+      mem.shift(numT ? Number(numT) : Number(num));
+      localStorage.setItem("memory", JSON.stringify(mem));
+    } else if (input == "MR") {
+      setDisplay((prev) => prev + mem[0]);
+      setNum(mem[0]);
+    } else if (input == "MC") {
+      localStorage.setItem("memory", JSON.stringify([]));
     }
   }
 
@@ -47,8 +69,10 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col justify-center bg-gray-500">
-      <h1 className="text--200 ">{display ? display : 0}</h1>
+    <div className="flex flex-col justify-center bg-[#D5D1C3] py-10 px-5">
+      <div className=" bg-emerald-500 flex flex-col my-4 text-black">
+        <h3 className="self-end text-6xl p-2">{display ? display : 0}</h3>
+      </div>
       <Inputs onPush={handleClick} />
     </div>
   );

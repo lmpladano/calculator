@@ -1,8 +1,6 @@
-import Numbers from "./Numbers";
-import Operators from "./Operators";
-
 export default function Inputs({ onPush }) {
   const layout = [
+    ["MC", "MR", "M-", "M+"],
     ["c", "magic", "round", "/"],
     ["7", "8", "9", "x"],
     ["4", "5", "6", "-"],
@@ -22,7 +20,7 @@ export default function Inputs({ onPush }) {
     );
   });
   return (
-    <div className="grid grid-cols-4 gap-4 bg-gray-600 py-10 px-5">
+    <div className="grid grid-cols-4 gap-4 bg-gray-500 px-2 py-9">
       {buttons}
     </div>
   );
