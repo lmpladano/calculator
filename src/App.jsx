@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="flex flex-col justify-center bg-gray-500">
-      <h1 className="text-white-200 ">{display ? display : 0}</h1>
+      <h1 className="text--200 ">{display ? display : 0}</h1>
       <Inputs onPush={handleClick} />
     </div>
   );
